@@ -7,14 +7,6 @@ env:
   - BCBIO_DOCKER_PRIVILEGED=True
 
 before_install:
-  # Install Docker in the minimal image (following https://docs.docker.com/installation/ubuntulinux/)
-  - sudo apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-  - echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" | sudo tee /etc/apt/sources.list.d/docker.list
-  - sudo apt-get update
-  - sudo apt-cache policy docker-engine
-  - sudo apt-get update
-  - sudo apt-get install docker-engine
-
   # Temporal fix for networking problem: https://github.com/travis-ci/travis-ci/issues/1484
   - echo "127.0.1.1 "`hostname` | sudo tee /etc/hosts
   # Get and install anaconda for custom Python installation
